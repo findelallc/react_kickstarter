@@ -1,6 +1,2 @@
 @import url(../src/assets/theme.css);
 @import url(../src/assets/utils.css);
-
-body {
-    background-color: black;
-}

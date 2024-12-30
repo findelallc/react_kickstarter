@@ -36,10 +36,13 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h1>Login Page</h1>
+        <div className="grid grid-cols-2 w-6/12 mx-auto my-36 gap-10">
+            {/* <h1>Login Page</h1>
             <Link to="/">Back to home</Link>
-            <Button color="primary" onPress={handleLogin}>Login</Button>
+            <Button color="primary" onPress={handleLogin}>Login</Button> */}
+            <div>
+                <h1 className="text-3xl font-bold">Welcome to admin panel</h1>
+            </div>
             <Form className="w-full max-w-xs" validationBehavior="native" onSubmit={handleLogin}>
                 <Input
                     isRequired

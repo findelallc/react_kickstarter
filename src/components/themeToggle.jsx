@@ -1,28 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { getTheme, toggleTheme } from "../services/theme.service";
 
 const ThemeToggle = () => {
-    const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(getTheme());
 
-    useEffect(() => {
-        // Initialize theme from localStorage or default to "light"
-        const savedTheme = localStorage.getItem("theme") || "light";
-        setTheme(savedTheme);
-        document.documentElement.classList.add(savedTheme); // Add theme class to <html>
-    }, []);
+  const handleToggle = () => {
+    const newTheme = toggleTheme();
+    setTheme(newTheme); // Update the local state
+  };
 
-    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-        document.documentElement.classList.remove(theme);
-        document.documentElement.classList.add(newTheme);
-    };
+  useEffect(() => {
+    // Ensure the theme is applied when the component mounts
+    document.documentElement.classList.add(theme);
+  }, [theme]);
 
-    return (
-        <button onClick={toggleTheme} className="theme-toggle-btn">
-            Switch to {theme === "light" ? "Dark" : "Light"} Mode
-        </button>
-    );
+  return (
+    <button onClick={handleToggle} className="theme-toggle-btn">
+      Switch to {theme === "light" ? "Dark" : "Light"} Mode
+    </button>
+  );
 };
 
 export default ThemeToggle;

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { globalStore } from "../store";
+import { globalStore } from "../services/store/global.store";
 
 const Home = () => {
     const navigate = useNavigate();

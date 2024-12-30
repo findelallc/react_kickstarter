@@ -1,7 +1,7 @@
 import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import { globalStore } from "../store";
+import { globalStore } from "../services/store/global.store";
 
 const Dashboard = () => {
     const navigate = useNavigate();

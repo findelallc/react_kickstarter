@@ -1,0 +1,1 @@
+export const API_URL = 'https://dev-notification.tokenalerts.com/api/v1';

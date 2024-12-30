@@ -3,6 +3,7 @@ import { routes } from "./routes";
 import { middlewares } from "./middleware";
 import MiddlewareWrapper from "./MiddlewareWrapper";
 import NotFound from "./pages/404Page";
+import './App.css';
 
 const App = () => {
   return (

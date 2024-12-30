@@ -1,31 +1,27 @@
-import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import routes from "./routes";
-import ProtectedRoute from "./ProtectedRoute";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { routes } from "./routes";
+import { middlewares } from "./middleware";
+import MiddlewareWrapper from "./MiddlewareWrapper";
 import NotFound from "./pages/404Page";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          {routes.map((route, index) => {
-            const Component = lazy(route.component);
-            const element = <Component />;
-
-            // If the route has middleware and requires protection, apply ProtectedRoute
-            const RouteComponent = route.middleware.includes("auth") ? (
-              <ProtectedRoute element={element} />
-            ) : (
-              element
-            );
-
-            return <Route key={index} path={route.path} element={RouteComponent} />;
-          })}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        {routes.map(({ path, element, middleware }, index) => (
+          <Route
+            key={index}
+            path={path}
+            element={
+              <MiddlewareWrapper middleware={middleware.map((name) => middlewares[name])}>
+                {element}
+              </MiddlewareWrapper>
+            }
+          />
+        ))}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 };
 

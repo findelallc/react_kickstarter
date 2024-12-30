@@ -7,11 +7,6 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const authToken = localStorage.getItem("authToken");
-        if (authToken) {
-            navigate("/dashboard"); // Redirect to dashboard if authenticated
-        }
-
         if (globalStore?.storeDetails?.value?.counter <= 1) {
             globalStore.updateStore({ counter: 2 });
         }

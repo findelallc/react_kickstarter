@@ -1,9 +1,10 @@
+// themeService.js
 
-const THEME_KEY = "theme"; // Key for localStorage
+const THEME_KEY = "theme";
 
 // Get the current theme
 export const getTheme = () => {
-  return localStorage.getItem(THEME_KEY) || "light"; // Default to 'light'
+  return localStorage.getItem(THEME_KEY) || "light";
 };
 
 // Set a new theme
@@ -18,5 +19,5 @@ export const toggleTheme = () => {
   const currentTheme = getTheme();
   const newTheme = currentTheme === "light" ? "dark" : "light";
   setTheme(newTheme);
-  return newTheme; // Return the new theme for convenience
+  return newTheme;
 };

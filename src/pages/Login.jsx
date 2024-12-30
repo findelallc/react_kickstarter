@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { globalStore } from "../services/store/global.store";
 import { loginUser } from "../services/api/auth.api";
 import { Form, Input, Button } from "@nextui-org/react";
-import { getTheme } from "../services/theme.service";
+import { ThemeContext } from "../services/theme/theme.context";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -12,6 +12,7 @@ const Login = () => {
     const [submitted, setSubmitted] = useState(null);
 
     const navigate = useNavigate();
+    const { theme } = useContext(ThemeContext);
 
     useEffect(() => {
         if (globalStore?.storeDetails?.value?.counter <= 1) {
@@ -39,7 +40,7 @@ const Login = () => {
     return (
         <div className="grid grid-cols-2 w-6/12 mx-auto my-36 gap-10">
             <div>
-                <img src={`${getTheme() === "light" ? "/keptitude-light.png" : "/keptitude-dark.png"}`} width={125} />
+                <img src={`${theme === "light" ? "/keptitude-light.png" : "/keptitude-dark.png"}`} width={125} />
                 <div className="mt-6">
                     <h1 className="text-2xl font-bold">Welcome to admin panel</h1>
                     <p className="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel sem facilisis, suscipit dolor ac, volutpat nisi. In vitae tristique nisi. </p>

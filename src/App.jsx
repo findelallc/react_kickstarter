@@ -5,7 +5,7 @@ import MiddlewareWrapper from "./MiddlewareWrapper";
 import NotFound from "./pages/404Page";
 import { NextUIProvider } from "@nextui-org/react";
 import "./App.css";
-import ThemeToggle from "./components/themeToggle";
+import ThemeToggle from "./services/theme/themeToggle";
 
 const App = () => {
   return (

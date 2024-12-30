@@ -10,8 +10,7 @@ import ThemeToggle from "./services/theme/themeToggle";
 const App = () => {
   return (
     <NextUIProvider>
-      <ThemeToggle />
-
+      {/* <ThemeToggle /> */}
       {/* React Router Setup */}
       <Router>
         <Routes>

@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { globalStore } from "../services/store/global.store";
 import { loginUser } from "../services/api/auth.api";
-import { Form, Input, Button } from "@nextui-org/react";
+import { Form, Input, Button, Spinner } from "@nextui-org/react";
 import { ThemeContext } from "../services/theme/theme.context";
 
 const Login = () => {
@@ -38,15 +38,18 @@ const Login = () => {
     };
 
     return (
-        <div className="grid grid-cols-2 w-6/12 mx-auto my-36 gap-10">
+        <div className="grid grid-cols-2 w-7/12 mx-auto my-40 gap-10">
             <div>
                 <img src={`${theme === "light" ? "/keptitude-light.png" : "/keptitude-dark.png"}`} width={125} />
-                <div className="mt-6">
+                <div className="mt-12">
                     <h1 className="text-2xl font-bold">Welcome to admin panel</h1>
-                    <p className="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel sem facilisis, suscipit dolor ac, volutpat nisi. In vitae tristique nisi. </p>
+                    <p className="mt-2">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Mauris vel sem facilisis, suscipit dolor ac, volutpat nisi. In vitae tristique nisi. 
+                    </p>
                 </div>
             </div>
-            <Form className="w-full max-w-xs" validationBehavior="native" onSubmit={handleLogin}>
+            <Form className="w-full max-w-xs border-l-1 border-gray-400 ps-10" validationBehavior="native" onSubmit={handleLogin}>
                 <Input
                     isRequired
                     errorMessage="Please enter a valid email"
@@ -58,7 +61,7 @@ const Login = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     classNames={{
-                        inputWrapper: ["my-1"],
+                        inputWrapper: ["mb-2"],
                     }}
                 />
                 <Input
@@ -72,11 +75,11 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     classNames={{
-                        inputWrapper: ["my-1"],
+                        inputWrapper: ["mb-2"],
                     }}
                 />
-                <Button type="submit" className="bg-black dark:bg-white dark:text-black font-bold shadow-none w-full mt-2 text-white">
-                    Submit
+                <Button isDisabled type="submit" className="bg-black dark:bg-white dark:text-black font-bold shadow-none w-full mt-2 text-white">
+                    Submit & Login  <Spinner size="sm" color="default" />
                 </Button>
                 {submitted && (
                     <div className="text-small text-default-500">

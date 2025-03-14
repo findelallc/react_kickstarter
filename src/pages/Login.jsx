@@ -46,7 +46,7 @@ const Login = () => {
      * method that checks token exists or not
      */
     const checkIfTokenExists = () => {
-        getStorage('authToken').then(result => {
+        getStorageByPromise('authToken').then(result => {
             if (result.flag && result.data) {
                 setSubmitted(false);
                 navigate("/dashboard");

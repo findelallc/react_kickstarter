@@ -23,7 +23,7 @@ export const getStorageByPromise = (key) => {
   return new Promise((resolve) => {
     let response = { flag: false, data: null };
     if (getStorage(key)) {
-      resolve({ ...response, flag: true, data: JSON.parse(getStorage(key)) });
+      resolve({ ...response, flag: true, data: key === 'authToken' ? getStorage(key) : JSON.parse(getStorage(key)) });
     } else {
       resolve(response);
     }

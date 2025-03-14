@@ -49,8 +49,8 @@ const Header = () => {
                         alt="nextui logo"
                         radius="sm"
                         className="rounded-none my-2"
-                        src={`${theme === "light" ? "/images/torc_infotech_logo" : "/images/torc_infotech_logo"} ".jpeg"`}
-                        width={100}
+                        src={`${theme === "light" ? "/images/torc_infotech_logo.jpeg" : "/images/torc_infotech_logo.jpeg"}`}
+                        width={33}
                     />
                     <div className="flex gap-4 my-auto">
                         <Link to={"/dashboard"} color="foreground"

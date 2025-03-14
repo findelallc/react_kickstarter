@@ -49,7 +49,7 @@ module.exports = {
           background: "#E4E3E8",
           foreground: "#000000",
           primary: {
-            DEFAULT: "#000000",
+            DEFAULT: "#1D2DD9",
             foreground: "#ffffff",
           },
           danger: {

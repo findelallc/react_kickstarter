@@ -11,6 +11,7 @@ export const routes = [
   {
     path: "/dashboard",
     element: <Dashboard />,
+    layout: true,
     middleware: ["auth"], // Auth middleware for protected route
   },
   {

@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-const { nextui } = require("@nextui-org/react");
+const { heroui } = require("@heroui/react");
 
 module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}", // Include NextUI theme
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}", // Include heroui theme
   ],
   theme: {
     extend: {
@@ -20,7 +20,7 @@ module.exports = {
     },
   },
   darkMode: "class", // Enable class-based dark mode
-  plugins: [nextui({
+  plugins: [heroui({
     themes: {
       dark: {
         colors: {

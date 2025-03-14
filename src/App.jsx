@@ -1,34 +1,35 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense } from "react";
 import { routes } from "./routes";
-import { middlewares } from "./middleware";
-import MiddlewareWrapper from "./MiddlewareWrapper";
+import { middlewares } from "./middleware/types.middleware";
+import MiddlewareWrapper from "./middleware/wrapper.middleware";
 import NotFound from "./pages/404Page";
-import { NextUIProvider } from "@nextui-org/react";
 import "./App.css";
-import ThemeToggle from "./services/theme/themeToggle";
+import Layout from "./components/Layout";
 
 const App = () => {
   return (
-    <NextUIProvider>
-      {/* <ThemeToggle /> */}
+    <Router>
       {/* React Router Setup */}
-      <Router>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          {routes.map(({ path, element, middleware }, index) => (
+          {routes.map(({ path, element, middleware, layout }, index) => (
             <Route
               key={index}
               path={path}
               element={
-                <MiddlewareWrapper middleware={middleware.map((name) => middlewares[name])}>
-                  {element}
+                <MiddlewareWrapper
+                  middleware={middleware.map((name) => middlewares[name])}
+                >
+                  {layout ? <Layout>{element} </Layout> : element}
                 </MiddlewareWrapper>
               }
             />
           ))}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Router>
-    </NextUIProvider>
+      </Suspense>
+    </Router>
   );
 };
 

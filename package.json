@@ -1,5 +1,5 @@
 {
-  "name": "react-vite-nextui",
+  "name": "react-vite",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,14 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.6.10",
-    "@nextui-org/theme": "^2.4.4",
+    "@heroui/react": "^2.7.5",
+    "@heroui/theme": "^2.4.4",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
+    "jwt-decode": "^4.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-icons": "^5.4.0",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^7.1.1",
     "rxjs": "^7.8.1",
     "tailwind-merge": "^2.6.0"

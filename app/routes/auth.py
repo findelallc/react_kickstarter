@@ -3,7 +3,6 @@ from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
 from app import mongo
 import re
-from app import mongo
 
 auth_bp = Blueprint("auth", __name__)
 
